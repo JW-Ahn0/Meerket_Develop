@@ -2,7 +2,7 @@ import { LoginTemplate } from "components/templates";
 import { Outlet } from "react-router-dom";
 import { requestOAuthLogin } from "services/apis";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   /**
    * 카카오 로그인 버튼 클릭 이벤트 핸들러
    */
@@ -21,6 +21,7 @@ export const LoginPage = () => {
     return <Outlet />;
   }
 
+  console.log("LGP 관련 LoginPage.tsx 06_48");
   return (
     <>
       <LoginTemplate
@@ -31,3 +32,5 @@ export const LoginPage = () => {
     </>
   );
 };
+
+export default LoginPage;

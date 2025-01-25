@@ -29,7 +29,7 @@ interface IMarketPricePostResponse extends IResponse {
   };
 }
 
-export const MarketPricePage = () => {
+const MarketPricePage = () => {
   const navigate = useNavigate();
 
   /** 백엔드 IMarketPricePost 타입을 프론트 IPost 으로 변환 함수
@@ -46,6 +46,7 @@ export const MarketPricePage = () => {
     /** 게시글 ID */
     productId: marketPricePost.productId,
     /** 게시글 썸네일 이미지 */
+    //imgUrl: marketPricePost.image,
     imgUrl: marketPricePost.image,
     /** 게시글 제목 */
     title: marketPricePost.title,
@@ -85,7 +86,8 @@ export const MarketPricePage = () => {
       { size: 100 }
     );
     if (response.success && response.code === "COMMON200") {
-      return response.result.content.map(createMarketPricePostItem);
+      const posts = response.result.content.map(createMarketPricePostItem);
+      return posts;
     }
     throw new Error("Failed to fetch market price posts");
   };
@@ -104,3 +106,5 @@ export const MarketPricePage = () => {
   }
   return <MarketPriceTemplate posts={data || []}></MarketPriceTemplate>;
 };
+
+export default MarketPricePage;
