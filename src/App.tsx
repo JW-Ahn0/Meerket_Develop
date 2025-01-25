@@ -14,14 +14,14 @@ const App = () => {
   const isOpen = useModalStore((store) => store.isOpen);
   const content = useModalStore((store) => store.content);
   const { closeModal } = useModalStore((store) => store.actions);
-
+  console.log("test 1");
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyle />
       <RouterProvider
         router={router}
         future={{
-          v7_startTransition: true
+          v7_startTransition: true,
         }}
       />
       <Modal open={isOpen} onClose={closeModal}>
